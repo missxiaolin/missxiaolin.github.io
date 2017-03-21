@@ -5,7 +5,7 @@ categories: "前端之巅"
 tags: '前端'
 ---
 
-###原始写法
+### 原始写法
 
 ~~~
 function m1(){
