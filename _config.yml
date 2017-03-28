@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 小林博客
 subtitle:
 description:
 author: John Doe
 language: zh-CN
-timezone:
+timezone: Asia/Urumqi
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -65,6 +65,7 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 # theme: landscape
 theme: maupassant
+duoshuo_shortname: xiaolinouye
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

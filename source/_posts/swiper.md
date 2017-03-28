@@ -35,7 +35,7 @@ tags: '前端'
 
 3.swiper animate库核心css文件:animate.min.css
 
-###rem和vw区别
+### rem和vw区别
 -
 
 ###[rem](https://isux.tencent.com/web-app-rem.html)
@@ -45,13 +45,13 @@ tags: '前端'
 
 2.rem 最早用于@media做不同的css响应的时候用的是rem
 
-###vw
+### vw
 
 1.vw 他指的是屏幕的百分比  例如：指定文字大小font-size:10vw,他的大小就是屏幕的宽度*10%
 
 2.vw可以轻松搞定弹性布局（CSS3引入了一种新的布局模式——Flexbox布局，即伸缩布局盒模型（Flexible Box），用来提供一个更加有效的方式制定、调整和分布一个容器里项目布局，即使它们的大小是未知或者动态的，这里简称为Flex。），流体布局（简单的来说，就是网页缩小和放大时网页布局会随着浏览器的大小而改变！）。
 
-###[弹性布局优势](http://blog.csdn.net/practicer2015/article/details/46454821)
+### [弹性布局优势](http://blog.csdn.net/practicer2015/article/details/46454821)
 
 1.屏幕和浏览器窗口大小发生改变也可以灵活调整布局；
 
@@ -59,7 +59,7 @@ tags: '前端'
 
 3.可以按照不同于文档对象模型（DOM）所指定排序方式对屏幕上的元素重新排序。也就是说可以在浏览器渲染中不按照文档流先后顺序重排伸缩项目顺序。
 
-###click事件[tap](http://www.runoob.com/jquerymobile/jquerymobile-panels.html)事件区别
+### click事件[tap](http://www.runoob.com/jquerymobile/jquerymobile-panels.html)事件区别
 
 1.两者都会在点击时触发，但是在手机WEB端，click会有 200~300 ms，所以请用tap代替click作为点击事件。
 
@@ -67,7 +67,7 @@ singleTap和doubleTap 分别代表单次点击和双次点击。
 
 2.处理方式：github上有一个叫做fastclick的库，它也能规避移动设备上click事件的延迟响应[地址](https://github.com/ftlabs/fastclick) 实际开发中当元素绑定fastclick后，click响应速度比tap还要快一点点。
 
-###H5触摸事件
+### H5触摸事件
 
 现今大多数触屏手机webkit内核提供了touch事件的监听：touchstart,touchmove,touchend,touchcancel
 
