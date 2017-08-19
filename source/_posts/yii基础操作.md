@@ -1,7 +1,7 @@
 ---
 title: yii基础操作
 date: 2017-03-23 15:16:46
-categories: "php"
+categories: ["PHP","yii"]
 tags: 'php'
 ---
 
@@ -304,3 +304,9 @@ return [
             ],
         ];
 ~~~  
+
+### 生成access-token
+
+~~~
+Yii::$app->security->generateRandomString
+~~~

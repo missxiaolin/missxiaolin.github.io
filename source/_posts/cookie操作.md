@@ -1,7 +1,7 @@
 ---
 title: yii cookie的使用
 date: 2017-03-21 15:16:46
-categories: "php"
+categories: ["PHP","yii"]
 tags: 'php'
 ---
 

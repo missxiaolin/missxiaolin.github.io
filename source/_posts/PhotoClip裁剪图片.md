@@ -2,7 +2,7 @@
 title: PhotoClip裁剪图片
 date: 2017-03-29 9:16:46
 categories: "前端之巅"
-tags: '前端'
+tags: 'php'
 ---
 
 ### PhotoClip裁剪图片
@@ -129,6 +129,26 @@ function fileSize(str)
 
     fileSize=parseInt(str.length-(str.length/8)*2);
     return fileSize;
+}
+~~~
+
+### yii 保存base64编码图片
+
+~~~
+public function actionLogoUrl()
+{
+    $data = [];
+    Yii::$app->response->format = Response::FORMAT_JSON;
+    $base64 = Yii::$app->request->post('接收base64');
+    if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $base64, $result)){
+        if (!is_dir(Yii::$app->basePath.'目录')){
+            mkdir(Yii::$app->basePath.'目录');
+        }
+        $type = $result[2];
+        $new_file = Yii::$app->basePath.'目录'.uniqid().".{$type}";
+        file_put_contents($new_file, base64_decode(str_replace($result[1], '', $base64)));
+    }
+    return $data;
 }
 ~~~
 
