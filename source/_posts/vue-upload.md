@@ -5,7 +5,7 @@ categories: "前端之巅"
 tags: '前端'
 ---
 
-[ECMAScript](http://es6.ruanyifeng.com/#docs/promise)
+[vue-core-image-upload](https://github.com/Vanthink-UED/vue-core-image-upload)
 
 
 | Props | Type | Example | | Description |
