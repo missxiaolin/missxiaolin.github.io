@@ -38,7 +38,9 @@ tags: '前端'
 ### rem和vw区别
 -
 
-###[rem](https://isux.tencent.com/web-app-rem.html)
+### rem
+
+[rem](https://isux.tencent.com/web-app-rem.html)
 
 
 1.rem 在页面当中在body设置一个基准值 在body设置font-size：10px 其他地方设置大小相对于body设置 例如设置p标签2rem 那么他最终实际大小就是20
