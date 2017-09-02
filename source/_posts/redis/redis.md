@@ -1,6 +1,6 @@
 ---
 title: redis安装
-date: 2017-09-02 15:16:46
+date: 2017-09-02 15:30:46
 categories: ["PHP"]
 tags: 'php'
 ---
