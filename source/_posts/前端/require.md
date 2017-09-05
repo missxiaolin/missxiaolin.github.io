@@ -151,6 +151,8 @@ async属性表明这个文件需要异步加载，避免网页失去响应。IE�
 
 ### 使用require.js
 
+requireJs是使用head.appendChild()将每个依赖加载为一个script标签
+
 - 模块的加载
 
 ~~~
@@ -187,6 +189,10 @@ require.js会先加载jQuery、bootstrap和ztree，然后再运行回调函数�
 - baseUrl
 
 ~~~
+html: html引入，baseUrl就是html本身
+
+data-main: 使用data-main baseUrl就是data-main的文件路径
+
 另一种则是直接改变基目录（baseUrl）。
 　　require.config({
 　　　　baseUrl: "js/lib",
