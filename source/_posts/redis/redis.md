@@ -109,6 +109,26 @@ OK
 PONG
 ~~~
 
+### 我们可以通过以下命令查看是否设置了密码验证
+
+~~~
+127.0.0.1:6379> CONFIG get requirepass
+1) "requirepass"
+2) ""
+~~~
+
+### 设置密码验证
+
+~~~
+CONFIG set requirepass "xiaolin"
+~~~
+
+设置密码后，客户端连接 redis 服务就需要密码验证，否则无法执行命令。
+
+~~~
+127.0.0.1:6379> AUTH xiaolin
+~~~
+
 ## 安装Redis的PHP扩展
 
 ### MAC 系统
