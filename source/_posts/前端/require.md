@@ -165,6 +165,12 @@ require.config({
 　　});
 ~~~
 
+### 版本号
+
+~~~
+urlArgs: 'v=' + (new Date()).getTime()
+~~~
+
 1.如果某个模块在另一台主机上，也可以直接指定它的网址，比如：
 
 ~~~
@@ -243,9 +249,21 @@ require.config({
 	          	'css!../js/component/bootstrap/dist/css/bootstrap.min',
 	          	]
 　　　　　　},
-　　　　}
+　　　　},
+    map: {
+        '*' : {
+            'css': 'component/require-css/css.min'
+        }
+    }
+}
 });
 ~~~
+
+### 加载html
+
+[https://github.com/requirejs/text](https://github.com/requirejs/text)
+
+
 
 ### 自定义模块
 
@@ -258,4 +276,10 @@ define(function (){
 　　　　add: add
 　　};
 });
+~~~
+
+打包
+
+~~~
+https://github.com/requirejs/r.js
 ~~~
