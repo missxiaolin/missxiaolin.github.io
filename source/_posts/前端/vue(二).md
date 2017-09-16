@@ -1,5 +1,5 @@
 ---
-title: vue 模块化开发
+title: vue 模块化开发(二)
 date: 2017-09-17 09:16:46
 categories: "前端之巅"
 tags: '前端'
