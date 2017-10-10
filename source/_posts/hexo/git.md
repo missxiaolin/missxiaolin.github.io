@@ -8,7 +8,7 @@ tags: 'git'
 
 # deep-gotgit
 
-> ##### git config 配置文件的三种级别
+##### git config 配置文件的三种级别
 
 ```
 # 版本库级别:
@@ -19,25 +19,25 @@ git config -e --global
 git config -e --system
 ```
 
-> ##### 添加修改配置文件参数
+##### 添加修改配置文件参数
 
 ```
 git config a.b something
 ```
 
-> ##### 不删除工作目录文件，仅删除暂存区的文件
+##### 不删除工作目录文件，仅删除暂存区的文件
 
 ```
 git rm --cached cached.txt
 ```
 
-> ##### 跳过使用暂存区域直接提交
+##### 跳过使用暂存区域直接提交
 
 ```
 git commit -a -m "不使用git add 直接提交"
 ```
 
-> ##### 查找当前工作区的Git版本库位置
+##### 查找当前工作区的Git版本库位置
 
 ```
 $ pwd
@@ -46,7 +46,7 @@ $ git rev-parse --git-dir
 /Applications/www/My blog/.git
 ```
 
-> ##### 显示工作区根目录
+##### 显示工作区根目录
 
 ```
 git rev-parse --
@@ -54,7 +54,7 @@ git rev-parse --
 /Applications/www/My blog
 ```
 
-> ##### 显示工作区根目录的相对目录
+##### 显示工作区根目录的相对目录
 
 ```
 $ cd source/_posts
@@ -62,7 +62,7 @@ git rev-parse --show-prefix
 source/_posts/
 ```
 
-> ##### 重新修改最新的提交, 改正作者和提交者的错误信息
+##### 重新修改最新的提交, 改正作者和提交者的错误信息
 
 ```
 $ git commit --amend --allow-empty --reset-author
@@ -72,19 +72,19 @@ $ git commit --amend --allow-empty --reset-author
     # --reset-author 将Author提交者的ID同步修改,重置AuthorDate信息
 ```
 
-> ##### 精简查看日志
+##### 精简查看日志
 
 ```
 git log --pretty=oneline
 ```
 
-> ##### 精简格式的状态
+##### 精简格式的状态
 
 ```
 git status -s
 ```
 
-> ##### 比较差异
+##### 比较差异
 
 ```shell
 # 工作区与提交暂存区(stage)对比:
@@ -99,13 +99,13 @@ git diff A B
 git diff A
 ```
 
-> ##### 逐词比较
+##### 逐词比较
 
 ```shell
 git diff --word-diff
 ```
 
-> ##### 文件追溯，找出谁修改过文件，由谁引入
+##### 文件追溯，找出谁修改过文件，由谁引入
 
 ```shell
 git blame README
@@ -113,13 +113,13 @@ git blame README
 git blame -L 2,+3 README
 ```
 
-> ##### 显示暂存区的目录树
+##### 显示暂存区的目录树
 
 ```
 git ls-file -s
 ```
 
-> ##### 通过Git日志重置master
+##### 通过Git日志重置master
 
 ```
 $ git reflog show master| head -5
@@ -133,7 +133,7 @@ f1fbdca master@{3}: commit: which version checked in?
 $ git reset --hard master@{2}
 ```
 
-> ##### 撤回上一次commit提交, 工作区内容不改变
+##### 撤回上一次commit提交, 工作区内容不改变
 
 ```
 git reset --soft HEAD^
@@ -148,14 +148,14 @@ git reset --soft HEAD^
 删除工作空间改动代码，撤销commit，撤销git add . 
 ```
 
-> ##### 查看当前 HEAD 的指向
+##### 查看当前 HEAD 的指向
 
 ```
 $ cat .git/HEAD
 ref: refs/heads/master
 ```
 
-> ##### 挽救分离头指针
+##### 挽救分离头指针
 
 ```
 # 1.在分离头指针的分支上查看并记录下提交 ID
@@ -167,14 +167,14 @@ $ git checkout master
 $ git merge 04f430b1ff24534b9fd8a8ccf0e96b6df1f4179f
 ```
 
-> ##### commit 后，想回到之前的状态，放弃最新的提交
+##### commit 后，想回到之前的状态，放弃最新的提交
 
 ```
 git reset --soft HEAD^
 # 提交日志也被抛弃...
 ```
 
-> ##### 将暂存区的文件撤出(add 后的文件)
+##### 将暂存区的文件撤出(add 后的文件)
 
 ```
 # 撤出所有暂存区文件
@@ -183,7 +183,7 @@ $ git reset
 $ git reset HEAD path/to/workspace/welcome.txt
 ```
 
-> ##### 清除本地修改
+##### 清除本地修改
 
 ```
 $ git st -s
@@ -193,7 +193,7 @@ M README.md
 $ git checkout -- README.md
 ```
 
-> ##### 删除本地多余文件或目录
+##### 删除本地多余文件或目录
 
 ```
 # 确保万一，先查询会删除哪些文件
@@ -202,19 +202,19 @@ git clean -nd
 git clean -fd
 ```
 
-> ##### 创建里程碑
+##### 创建里程碑
 
 ```
 git tag -m "Say bye-bye to all previous practice." old_pratice
 ```
 
-> ##### 查看暂存区文件目录
+##### 查看暂存区文件目录
 
 ```
 git ls-files
 ```
 
-> ##### 查看历史版本的文件列表
+##### 查看历史版本的文件列表
 
 ```
 $ git ls-files --with-tree=HEAD^
@@ -224,7 +224,7 @@ new-welcome.txt
 welcome.txt
 ```
 
-> ##### 查看历史版本中尚存的删除文件的内容
+##### 查看历史版本中尚存的删除文件的内容
 
 ```shell
 $ git cat-file -p HEAD^:welcome.txt
@@ -233,13 +233,13 @@ Nice to meet you
 hello echo
 ```
 
-> ##### 将(版本库追踪的)本地文件的变更全部记录到暂存区中
+##### 将(版本库追踪的)本地文件的变更全部记录到暂存区中
 
 ```shell
 git add -u
 ```
 
-> ##### 从历史( HEAD^ 前一次提交)恢复指定文件
+##### 从历史( HEAD^ 前一次提交)恢复指定文件
 
 ```Shell
 # 以下3种命令均可实现
