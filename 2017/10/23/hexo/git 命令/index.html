@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>git常用命令 | 你总是这样轻言放弃的话，无论多久你都只会原地踏步。</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">git常用命令</h1><a id="logo" href="/.">你总是这样轻言放弃的话，无论多久你都只会原地踏步。</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">git常用命令</h1><div class="post-meta">Oct 23, 2017<span> | </span><span class="category"><a href="/categories/git/">git</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2017/10/23/hexo/git 命令/" href="/2017/10/23/hexo/git 命令/#comments" class="ds-thread-count"></a><div class="post-content"><h2 id="git命令大全"><a href="#git命令大全" class="headerlink" title="git命令大全"></a>git命令大全</h2><p>git init                                                  # 初始化本地</p>
+<p>git仓库（创建新仓库）</p>
+<p>git config –global user.name “xxx”                       # 配置用户名</p>
+<p>git config –global user.email “xxx@xxx.com”              # 配置邮件</p>
+<p>git config –global color.ui true                         # git status</p>
+<p>等命令自动着色</p>
+<p>git config –global color.status auto</p>
+<p>git config –global color.diff auto</p>
+<p>git config –global color.branch auto</p>
+<p>git config –global color.interactive auto</p>
+<p>git config –global –unset http.proxy                    # remove  </p>
+<p>proxy configuration on git</p>
+<p>git clone git+ssh://git@192.168.53.168/VT.git             # clone远程仓<br>库</p>
+<p>git status                                                # 查看当前版本</p>
+<p>状态（是否修改）</p>
+<p>git add xyz                                               # 添加xyz文件</p>
+<p>至index</p>
+<p>git add .                                                 # 增加当前子目</p>
+<p>录下所有更改过的文件至index</p>
+<p>git commit -m ‘xxx’                                       # 提交</p>
+<p>git commit –amend -m ‘xxx’                               # 合并上一次提</p>
+<p>交（用于反复修改）</p>
+<p>git commit -am ‘xxx’                                      # 将add和</p>
+<p>commit合为一步</p>
+<p>git rm xxx                                                # 删除index中</p>
+<p>的文件</p>
+<p>git rm -r *                                               # 递归删除</p>
+<p>git log                                                   # 显示提交日志</p>
+<p>git log -1                                                # 显示1行日志 </p>
+<p>-n为n行</p>
+<p>git log -5</p>
+<p>git log –stat                                            # 显示提交日志<br>及相关变动文件</p>
+<p>git log -p -m</p>
+<p>git show dfb02e6e4f2f7b573337763e5c0013802e392818         # 显示某个提交的详细内容</p>
+<p>git show dfb02                                            # 可只用<br>commitid的前几位</p>
+<p>git show HEAD                                             # 显示HEAD提交<br>日志</p>
+<p>git show HEAD^                                            # 显示HEAD的父（上一个版本）的提交日志 ^^为上两个版本 ^5为上5个版本</p>
+<p>git tag                                                   # 显示已存在的<br>tag</p>
+<p>git tag -a v2.0 -m ‘xxx’                                  # 增加v2.0的<br>tag</p>
+<p>git show v2.0                                             # 显示v2.0的日志及详细内容</p>
+<p>git log v2.0                                              # 显示v2.0的日志</p>
+<p>git diff                                                  # 显示所有未添加至index的变更</p>
+<p>git diff –cached                                         # 显示所有已添加index但还未commit的变更</p>
+<p>git diff HEAD^                                            # 比较与上一个版本的差异</p>
+<p>git diff HEAD – ./lib                                    # 比较与HEAD版本lib目录的差异</p>
+<p>git diff origin/master..master                            # 比较远程分支master上有本地分支master上没有的</p>
+<p>git diff origin/master..master –stat                     # 只显示差异的文件，不显示具体内容</p>
+<p>git remote add origin git+ssh://git@192.168.53.168/VT.git # 增加远程定义（用于push/pull/fetch）</p>
+<p>git branch                                                # 显示本地分支</p>
+<p>git branch –contains 50089                               # 显示包含提交<br>50089的分支</p>
+<p>git branch -a                                             # 显示所有分支</p>
+<p>git branch -r                                             # 显示所有原创分支</p>
+<p>git branch –merged                                       # 显示所有已合并到当前分支的分支</p>
+<p>git branch –no-merged                                    # 显示所有未合并到当前分支的分支</p>
+<p>git branch -m master master_copy                          # 本地分支改名</p>
+<p>git checkout -b master_copy                               # 从当前分支创建新分支master_copy并检出</p>
+<p>git checkout -b master master_copy                        # 上面的完整版</p>
+<p>git checkout features/performance                         # 检出已存在的<br>features/performance分支</p>
+<p>git checkout –track hotfixes/BJVEP933                    # 检出远程分支hotfixes/BJVEP933并创建本地跟踪分支</p>
+<p>git checkout v2.0                                         # 检出版本v2.0</p>
+<p>git checkout -b devel origin/develop                      # 从远程分支<br>develop创建新本地分支devel并检出</p>
+<p>git checkout – README                                    # 检出head版本的README文件（可用于修改错误回退）</p>
+<p>git merge origin/master                                   # 合并远程master分支至当前分支</p>
+<p>git cherry-pick ff44785404a8e                             # 合并提交ff44785404a8e的修改</p>
+<p>git push origin master                                    # 将当前分支push到远程master分支</p>
+<p>git push origin :hotfixes/BJVEP933                        # 删除远程仓库的hotfixes/BJVEP933分支</p>
+<p>git push –tags                                           # 把所有tag推送到远程仓库</p>
+<p>git fetch                                                 # 获取所有远程分支（不更新本地分支，另需merge）</p>
+<p>git fetch –prune                                         # 获取所有原创分支并清除服务器上已删掉的分支</p>
+<p>git pull origin master                                    # 获取远程分支master并merge到当前分支</p>
+<p>git mv README README2                                     # 重命名文件README为README2</p>
+<p>git reset –hard HEAD                                     # 将当前版本重置为HEAD（通常用于merge失败回退）</p>
+<p>git rebase<br>git branch -d hotfixes/BJVEP933                           # 删除分支<br>hotfixes/BJVEP933（本分支修改已合并到其他分支）</p>
+<p>git branch -D hotfixes/BJVEP933                           # 强制删除分支hotfixes/BJVEP933</p>
+<p>git ls-files                                              # 列出git index包含的文件</p>
+<p>git show-branch                                           # 图示当前分支历史</p>
+<p>git show-branch –all                                     # 图示所有分支历史</p>
+<p>git whatchanged                                           # 显示提交历史对应的文件修改</p>
+<p>git revert dfb02e6e4f2f7b573337763e5c0013802e392818       # 撤销提交dfb02e6e4f2f7b573337763e5c0013802e392818</p>
+<p>git ls-tree HEAD                                          # 内部命令：显示某个git对象</p>
+<p>git rev-parse v2.0                                        # 内部命令：显示某个ref对于的SHA1 HASH</p>
+<p>git reflog                                                # 显示所有提交，包括孤立节点</p>
+<p>git show HEAD@{5}<br>git show master@{yesterday}                               # 显示master分支昨天的状态</p>
+<p>git log –pretty=format:’%h %s’ –graph                   # 图示提交日志<br>git show HEAD~3</p>
+<p>git show -s –pretty=raw 2be7fcb476<br>git stash                                                 # 暂存当前修改，将所有至为HEAD状态</p>
+<p>git stash list                                            # 查看所有暂存</p>
+<p>git stash show -p stash@{0}                               # 参考第一次暂存</p>
+<p>git stash apply stash@{0}                                 # 应用第一次暂存</p>
+<p>git grep “delete from”                                    # 文件中搜索文本“delete from”</p>
+<p>git grep -e ‘#define’ –and -e SORT_DIRENT</p>
+<p>git gc</p>
+<p>git fsck</p>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://yoursite.com/2017/10/23/hexo/git 命令/" data-id="cj93q6a50000hh6nt1cll1f3f" class="article-share-link">分享到</a><div class="tags"><a href="/tags/git/">git</a></div><div class="post-nav"><a href="/2017/10/08/php/php信号/" class="next">PHP 信号管理</a></div><div data-thread-key="2017/10/23/hexo/git 命令/" data-title="git常用命令" data-url="http://yoursite.com/2017/10/23/hexo/git 命令/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2017/10/23/hexo/git 命令/" data-title="git常用命令" data-url="http://yoursite.com/2017/10/23/hexo/git 命令/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/laravel/">laravel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/yii/">yii</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/composer/">composer</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端之巅/">前端之巅</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术杂谈/">技术杂谈</a><span class="category-list-count">10</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/composer/" style="font-size: 15px;">composer</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/elasticsearch/" style="font-size: 15px;">elasticsearch</a> <a href="/tags/前端/" style="font-size: 15px;">前端</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/23/hexo/git 命令/">git常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/08/php/php信号/">PHP 信号管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/29/hexo/git/">git指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/25/前端/vue(三)/">vue vuex应用(三)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/17/前端/vue(二)/">vue 模块化开发(二)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/13/前端/require之r.js打包(三)/">requirejs压缩工具r.js打包（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/11/前端/require之r.js打包（二）/">requirejs压缩工具r.js打包（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/11/前端/require之r.js打包（一）/">requirejs压缩工具r.js的build.js配置详解（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/07/前端/gulp/">gulp</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/07/前端/webpack/">webpack</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">你总是这样轻言放弃的话，无论多久你都只会原地踏步。.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'xiaolinouye'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
