@@ -36,3 +36,10 @@ chmod +x ins_node.sh
 ~~~
 ./ins_node.sh
 ~~~
+
+## 安装pm2 
+
+~~~
+npm install -g pm2
+vim ~/.bash_profile
+~~~
