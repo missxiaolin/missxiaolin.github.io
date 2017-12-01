@@ -325,8 +325,8 @@ axios.get('/user/12345')
     console.log(response.statusText);
     console.log(response.headers);
     console.log(response.config);
-  });
-~~~	
+});
+~~~
 
 在使用 catch 时，或传递 rejection callback 作为 then 的第二个参数时，响应可以通过 error 对象可被使用，正如在错误处理这一节所讲
 
@@ -337,6 +337,7 @@ axios.defaults.baseURL = 'https://api.example.com';
 axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 ~~~
+
 
 ### 自定义实例默认值
 
