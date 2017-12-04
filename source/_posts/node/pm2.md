@@ -1,5 +1,5 @@
 ---
-title: node（一）
+title: pm2
 date: 2017-11-23 11:36:46
 categories: ["node"]
 tags: '前端之巅'
