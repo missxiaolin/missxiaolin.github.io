@@ -1,0 +1,381 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>redis命令大全 | 你总是这样轻言放弃的话，无论多久你都只会原地踏步。</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">redis命令大全</h1><a id="logo" href="/.">你总是这样轻言放弃的话，无论多久你都只会原地踏步。</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">redis命令大全</h1><div class="post-meta">Dec 4, 2017<span> | </span><span class="category"><a href="/categories/PHP/">PHP</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2017/12/04/redis/install/" href="/2017/12/04/redis/install/#comments" class="ds-thread-count"></a><div class="post-content"><h3 id="redis-命令大全"><a href="#redis-命令大全" class="headerlink" title="redis 命令大全"></a>redis 命令大全</h3><table>
+<thead>
+<tr>
+<th>备注</th>
+<th></th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>设置密码</td>
+<td></td>
+<td>CONFIG set requirepass “xiaolin”</td>
+</tr>
+<tr>
+<td>使用redis</td>
+<td></td>
+<td>AUTH xiaolin</td>
+</tr>
+<tr>
+<td>清楚所有key</td>
+<td></td>
+<td>FLUSHALL</td>
+</tr>
+<tr>
+<td>删除key</td>
+<td></td>
+<td>del</td>
+</tr>
+<tr>
+<td>检查key是否存在</td>
+<td></td>
+<td>exists</td>
+</tr>
+<tr>
+<td>取出所有key</td>
+<td></td>
+<td>keys *</td>
+</tr>
+<tr>
+<td>过期时间</td>
+<td></td>
+<td>expire key seconds</td>
+</tr>
+<tr>
+<td>查看key剩余过期时间</td>
+<td></td>
+<td>ttl key</td>
+</tr>
+<tr>
+<td>去掉key过期时间</td>
+<td></td>
+<td>persist key</td>
+</tr>
+<tr>
+<td>返回key类型</td>
+<td></td>
+<td>type  key (tring、hash、list、set、zset、none)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><table>
+<thead>
+<tr>
+<th>备注</th>
+<th></th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key自增1</td>
+<td></td>
+<td>incr key</td>
+</tr>
+<tr>
+<td>key自减1</td>
+<td></td>
+<td>decr key</td>
+</tr>
+<tr>
+<td>key自增k</td>
+<td></td>
+<td>incrby key k</td>
+</tr>
+<tr>
+<td>key自减k</td>
+<td></td>
+<td>decrby key k</td>
+</tr>
+<tr>
+<td>字符串设置</td>
+<td></td>
+<td>set key value</td>
+</tr>
+<tr>
+<td>字符串获取</td>
+<td></td>
+<td>get key</td>
+</tr>
+<tr>
+<td>设置新值返回旧值</td>
+<td></td>
+<td>getset key value</td>
+</tr>
+<tr>
+<td>将value追加到旧的value</td>
+<td></td>
+<td>append key value</td>
+</tr>
+<tr>
+<td>返回字符串长度</td>
+<td></td>
+<td>strlen key</td>
+</tr>
+</tbody>
+</table>
+<h3 id="哈希"><a href="#哈希" class="headerlink" title="哈希"></a>哈希</h3><table>
+<thead>
+<tr>
+<th>备注</th>
+<th></th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>获取hash key 对应的value</td>
+<td></td>
+<td>hget key field</td>
+</tr>
+<tr>
+<td>设置hash key 对应的value</td>
+<td></td>
+<td>hset key field value</td>
+</tr>
+<tr>
+<td>获取hash key 对应的key value</td>
+<td></td>
+<td>hgetall key</td>
+</tr>
+<tr>
+<td>获取hash key 对应的field 的value</td>
+<td></td>
+<td>hvals key</td>
+</tr>
+<tr>
+<td>获取hash key 对应所有的field</td>
+<td></td>
+<td>hkeys key</td>
+</tr>
+<tr>
+<td>删除对应的hash key</td>
+<td></td>
+<td>hdel key field</td>
+</tr>
+<tr>
+<td>判断hash key 是否存在field</td>
+<td></td>
+<td>hexists key field</td>
+</tr>
+<tr>
+<td>获取hash key 数量</td>
+<td></td>
+<td>hlen key</td>
+</tr>
+<tr>
+<td>批量获取hash key 一批field对应的值</td>
+<td></td>
+<td>hmget key field1 field2</td>
+</tr>
+<tr>
+<td>批量设置hash key 一批field对应的值</td>
+<td></td>
+<td>hmset key field1 field2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="列表-list"><a href="#列表-list" class="headerlink" title="列表 list"></a>列表 list</h3><table>
+<thead>
+<tr>
+<th>备注</th>
+<th></th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>从列表右端插入值</td>
+<td></td>
+<td>rpush key value1 value2</td>
+</tr>
+<tr>
+<td>从列表左端插入值</td>
+<td></td>
+<td>lpush key value1 value2</td>
+</tr>
+<tr>
+<td>在list指定的值前、后插入newValue</td>
+<td></td>
+<td>linsert key before、after value2 newValue</td>
+</tr>
+<tr>
+<td>从左边弹出一个元素</td>
+<td></td>
+<td>lpop key</td>
+</tr>
+<tr>
+<td>从右边边弹出一个元素</td>
+<td></td>
+<td>rpop key</td>
+</tr>
+<tr>
+<td>按照索引范围修建列表</td>
+<td></td>
+<td>ltrim key start end</td>
+</tr>
+<tr>
+<td>获取列表指定范围内所有item</td>
+<td></td>
+<td>lrange key start end</td>
+</tr>
+<tr>
+<td>获取列表指定索引的item</td>
+<td></td>
+<td>lindex key index</td>
+</tr>
+<tr>
+<td>获取列表长度</td>
+<td></td>
+<td>llen key</td>
+</tr>
+<tr>
+<td>设定列表指定索引值为newValue</td>
+<td></td>
+<td>lset key index newValue</td>
+</tr>
+<tr>
+<td>lpop阻塞版本，timeeout是阻塞超时时间，timeout=0为永不阻塞</td>
+<td></td>
+<td>blpop key timeout</td>
+</tr>
+<tr>
+<td>brpop阻塞版本，timeeout是阻塞超时时间，timeout=0为永不阻塞</td>
+<td></td>
+<td>brpop key timeout</td>
+</tr>
+</tbody>
+</table>
+<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><table>
+<thead>
+<tr>
+<th>备注</th>
+<th></th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>向集合key添加element 如果存在则添加失败</td>
+<td></td>
+<td>sadd key element</td>
+</tr>
+<tr>
+<td>将集合key中的element移除掉</td>
+<td></td>
+<td>srem key element</td>
+</tr>
+<tr>
+<td>计算集合大小</td>
+<td></td>
+<td>scard key</td>
+</tr>
+<tr>
+<td>判断是否在集合中</td>
+<td></td>
+<td>sismember key value</td>
+</tr>
+<tr>
+<td>从集合中随机挑count个元素</td>
+<td></td>
+<td>srandmember key count</td>
+</tr>
+<tr>
+<td>从集合中随机弹出一个元素</td>
+<td></td>
+<td>spop key</td>
+</tr>
+<tr>
+<td>获取集合中所有元素</td>
+<td></td>
+<td>smembers key</td>
+</tr>
+<tr>
+<td>差集</td>
+<td></td>
+<td>sdiff key1 key2</td>
+</tr>
+<tr>
+<td>交集</td>
+<td></td>
+<td>sinter key1 key2</td>
+</tr>
+<tr>
+<td>并集</td>
+<td></td>
+<td>sunion key1 key2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="有序集合"><a href="#有序集合" class="headerlink" title="有序集合"></a>有序集合</h3><table>
+<thead>
+<tr>
+<th>备注</th>
+<th></th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>添加有序结合</td>
+<td></td>
+<td>zadd key score element</td>
+</tr>
+<tr>
+<td>删除有序结合</td>
+<td></td>
+<td>zrem key element</td>
+</tr>
+<tr>
+<td>返回元素分数</td>
+<td></td>
+<td>zscore key element</td>
+</tr>
+<tr>
+<td>增加或减少分数</td>
+<td></td>
+<td>zincrby key increScore element</td>
+</tr>
+<tr>
+<td>返回元素个数</td>
+<td></td>
+<td>zcard key</td>
+</tr>
+<tr>
+<td>返回指定索引范围内的升序元素</td>
+<td></td>
+<td>zrange key start end withscores</td>
+</tr>
+<tr>
+<td>返回指定分数范围内的升序元素</td>
+<td></td>
+<td>zrangebyscore key minscore maxscore withscores</td>
+</tr>
+<tr>
+<td>返回有序集合内在指定分数范围内的个数</td>
+<td></td>
+<td>zcount key minscore maxscore</td>
+</tr>
+<tr>
+<td>删除指定排名内的升序元素</td>
+<td></td>
+<td>zremrangebyrank key start end</td>
+</tr>
+<tr>
+<td>删除指定分数内的升序元素</td>
+<td></td>
+<td>zremrangebyscore key minscore maxscore</td>
+</tr>
+</tbody>
+</table>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://yoursite.com/2017/12/04/redis/install/" data-id="cjaql8aaw002kvgnt3869ktt8" class="article-share-link">分享到</a><div class="tags"><a href="/tags/php/">php</a></div><div class="post-nav"><a href="/2017/12/03/kafka/install/" class="next">kafka</a></div><div data-thread-key="2017/12/04/redis/install/" data-title="redis命令大全" data-url="http://yoursite.com/2017/12/04/redis/install/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2017/12/04/redis/install/" data-title="redis命令大全" data-url="http://yoursite.com/2017/12/04/redis/install/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/laravel/">laravel</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/yii/">yii</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/composer/">composer</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端之巅/">前端之巅</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术杂谈/">技术杂谈</a><span class="category-list-count">10</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/composer/" style="font-size: 15px;">composer</a> <a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/kafka/" style="font-size: 15px;">kafka</a> <a href="/tags/前端之巅/" style="font-size: 15px;">前端之巅</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/elasticsearch/" style="font-size: 15px;">elasticsearch</a> <a href="/tags/前端/" style="font-size: 15px;">前端</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/redis/install/">redis命令大全</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/03/kafka/install/">kafka</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/01/前端/Axios/">Axios</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/28/node/install/">node linux安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/28/linux/lnmp/">lnmp</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/23/node/node1/">node（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/23/hexo/git 命令/">git常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/15/hexo/git基本命令/">git指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/14/hexo/手动解决冲突/">git指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/08/php/php信号/">PHP 信号管理</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">你总是这样轻言放弃的话，无论多久你都只会原地踏步。.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'xiaolinouye'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
