@@ -5,72 +5,97 @@ categories: "技术杂谈"
 tags: ['php','linux']
 ---
 
-### 安装 Mysql
+## MAC 下搭建php开发环境
 
-1.查找mysql
+### 安装Homebrew
+* 自行查看brew.md
 
+### 安装oh my zsh
 ~~~
-brew search mysql
-automysqlbackup                      mysql-connector-c
-homebrew/php/php53-mysqlnd_ms        mysql-connector-c++
-homebrew/php/php54-mysqlnd_ms        mysql-sandbox
-homebrew/php/php55-mysqlnd_ms        mysql-search-replace
-homebrew/php/php56-mysqlnd_ms        mysql-utilities
-mysql                                mysql@5.5
-mysql++                              mysql@5.6
-mysql-cluster                        mysqltuner
-Caskroom/cask/mysql-connector-python
-Caskroom/cask/mysql-shell
-Caskroom/cask/mysql-utilities
-Caskroom/cask/mysqlworkbench
-Caskroom/cask/navicat-for-mysql
-Caskroom/cask/sqlpro-for-mysql
+brew install zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+vim ~/.zshrc
+修改 ZSH_THEME="bira"
 ~~~
 
-2.查看版本信息
-brew info mysql
-
-3.执行安装启动
-
+### brew 安装php
 ~~~
-brew install mysql
-mysql.server start
-# 略...
-# 安装完成后, 倒数第三行:
-# We've installed your MySQL database without a root password. To secure it run:
-#    mysql_secure_installation
-# To connect run:
-#    mysql -uroot
+brew tap homebrew/dupes  
+brew tap homebrew/versions  
+brew tap homebrew/homebrew-php  
+
+brew install php70 --with-homebrew-curl
 ~~~
 
-上面安装成功后提示的意思是说, 你安装的 MySql 没有密码, 执行mysql_secure_installation 进行设置密码, 其中会提示很多信息让你设置, 根据提示自己设置就行了。
-
-4.安装完成进入mysql
-
+### 安装部分扩展
 ~~~
-mysql -uroot -p
-~~~	
+brew install php70-swoole
+brew install php70-redis
+brew install php70-phalcon
+~~~
 
-<img src="http://oni42o7kl.bkt.clouddn.com/%E5%AE%89%E8%A3%85mysql.png">
+### 验证是否正确安装
+~~~
+php -v
+php-fpm -v
+~~~
 
-### 安装PHP
+### 配置php-fpm
+~~~
+vim /usr/local/etc/php/7.0/php-fpm.d/www.conf
+修改 user = yourname
+修改 group = staff
+vim /usr/local/etc/php/7.0/php-fpm.conf
+修改 daemonize = yes
+~~~
 
-1.超找php信息
-brew search php
+### 安装composer
+~~~
+brew install composer
+~~~
 
-2.执行安装
-brew install php
+### 找到一个地方作为自己的工作站
+~~~
+cd ~
+mkdir Apps
+cd Apps
+composer create-project limingxinleo/phalcon-project demo --prefer-dist
+cd demo
+php run 
+~~~
+* 当看到以下信息 就代表安装无误了
+~~~
+Success: The Storage was successfully created. 
+~~~
 
-3.安装成功
-php -i | grep php.ini 可以查找php.ini
+### 安装Nginx
+~~~
+brew install nginx
+sudo nginx
+~~~
+* 打开浏览器输入127.0.0.1:8080就能看到nginx的欢迎界面了
 
-### 安装nginx
+### 配置Nginx
+~~~
+cd /usr/local/etc/nginx/servers
+~~~
+* 并把[demo.conf](http://7xrqhy.com1.z0.glb.clouddn.com/phalcon.conf)复制到当前文件夹中
+* 修改文件 demo.conf
+~~~
+server_name  demo.app;
+root   /Users/yourname/Apps/demo/public;
+~~~
+* 重启nginx 启动php-fpm
+~~~
+sudo nginx -s reload
+sudo php-fpm
+~~~
 
-方法同上brew install nginx
+### 修改hosts
+~~~
+sudo vim /etc/hosts
+127.0.0.1 demo.app
+~~~
 
-配置文件在
-/usr/local/Cellar/nginx/
-
-
-
-
+### 查看效果
+打开浏览器输入http://demo.app 即可看到效果
