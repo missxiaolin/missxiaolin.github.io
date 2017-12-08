@@ -97,10 +97,14 @@ tags: 'php'
 | 删除指定分数内的升序元素 || zremrangebyscore key minscore maxscore |
 
 
+### GE0
 
-
-
-
+| 备注 |  | 命令 |
+| ------ || ------ |
+| 增加地理位置信息 || geo key longitude latitude member |
+| 获取地理位置信息 || geopos key member |
+| 获取2个地理位置距离 || geodist key member1 member2 |
+| 计算位置最近的 || georadiusbymember key member |
 
 
 
