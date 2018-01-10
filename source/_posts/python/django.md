@@ -14,6 +14,13 @@ brew install python3
 ~~~
 pip3 install django
 pip3 install mysqlclient
+~~~
+
+### 生成项目
+
+~~~
+django-admin.py startproject mysite2
+django-admin.py startapp TestModel
 python manage.py makemigrations
 python manage.py migrate
 ~~~
