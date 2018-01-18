@@ -28,3 +28,9 @@ composer config -g repo.packagist composer https://packagist.org
 ~~~
 composer dump-autoload --optimize
 ~~~
+
+## 执行
+
+~~~
+composer install --no-dev --prefer-dist
+~~~
