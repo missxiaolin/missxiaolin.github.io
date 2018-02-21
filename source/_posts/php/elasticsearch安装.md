@@ -20,3 +20,19 @@ elasticsearch中文发行版，针对中文集成了相关插件，方便新手�
 开始安装：
 
 1.composer require laravel/scout
+
+### mac
+
+安装
+
+~~~
+brew install kibana
+brew install elasticsearch
+~~~
+
+启动
+
+~~~
+brew services start kibana
+brew services start elasticsearch
+~~~
