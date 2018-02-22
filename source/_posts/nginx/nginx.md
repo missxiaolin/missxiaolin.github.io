@@ -379,6 +379,14 @@ H5
 </video>
 ~~~
 
+### 任务
+
+~~~
+crontab -e -u nginx
+00 05 * * * /usr/local/bin/php /www/web/monster-dks/run password:check@key >> /dev/null 2>&1
+*/10 * * * * /usr/local/bin/php /www/web/monster-dks/run password:check@key >> /dev/null 2>&1
+~~~
+
 
 
 
