@@ -36,11 +36,9 @@ npm install --save-dev babel-core babel-prest-es2015 babel-preset-latest 创建.
 }
 ~~~
 
-### Class和普通构造函数有什么区别
+打包 webpack 
 
-### Promise 的基本使用和原理
-
-### ES6常见功能
+npm install webpack babel-loder
 
 
 
