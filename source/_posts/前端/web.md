@@ -40,6 +40,16 @@ npm install --save-dev babel-core babel-prest-es2015 babel-preset-latest 创建.
 
 npm install webpack babel-loder
 
+### vdom
+
+[snabbdom](https://github.com/snabbdom/snabbdom)
+
+#### vdom为什么使用diff算法
+
+- dom操作是“昂贵”的，尽量减少dom操作
+- 找出dom必须跟新的节点来跟新，其他不跟新
+- 这个“找出”的过程，需要diff
+
 ### 判断是否手机端
 
 ~~~
