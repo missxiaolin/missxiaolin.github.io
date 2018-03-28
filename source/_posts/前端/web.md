@@ -50,6 +50,22 @@ npm install webpack babel-loder
 - 找出dom必须跟新的节点来跟新，其他不跟新
 - 这个“找出”的过程，需要diff
 
+#### vdom是什么？为什么使用vdom
+
+- virtual dom,虚拟DOM
+- 用JS模拟DOM结构
+- 讲Dom对比操作放在js层，提高效率
+
+
+#### vdom如何应用核心api是什么
+
+- vdom中应用diff算法为了找出需要跟新的节点
+
+- snabbdom
+- 核心API： h函数、patch函数
+
+#### 介绍下diff算法
+
 ### 判断是否手机端
 
 ~~~
