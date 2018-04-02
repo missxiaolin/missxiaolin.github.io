@@ -66,6 +66,13 @@ npm install webpack babel-loder
 
 #### 介绍下diff算法
 
+linux diff差异化
+
+#### 组件化的理解
+
+- 组件的封装：封装视图、数据、变化逻辑
+- 组件的复用：props传递、复用
+
 ### 判断是否手机端
 
 ~~~
