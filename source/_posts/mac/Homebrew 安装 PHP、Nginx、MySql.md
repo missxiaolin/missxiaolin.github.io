@@ -103,3 +103,9 @@ sudo vim /etc/hosts
 ### mac安装软件
 
 https://www.jetbrains.com/toolbox/app/?fromMenu
+
+### 建立软连接
+
+~~~
+brew link php@7.1 --force
+~~~
