@@ -475,3 +475,9 @@ axios.get('/user/12345', {
 // 取消请求
 cancel();
 ~~~
+
+### 如何带cookie
+
+axios要赋值cookie就不能 allow-headers *
+
+然后服务端配置'Access-Control-Allow-Credentials', 'true'
