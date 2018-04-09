@@ -109,3 +109,9 @@ vim /etc/motd
 用户可通过在Terminal中执行命令arch(即uname -m)来查看系统信息：
 64位系统显示:x86_64
 32位系统显示:i386
+
+### 任务脚本
+
+~~~
+yum install screen
+~~~
