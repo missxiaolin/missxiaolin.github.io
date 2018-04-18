@@ -42,4 +42,26 @@ php artisan make:seeder StudentTableSeeder
 php artisan db:seed --class=StudentTableSeeder
 ~~~
 
+4.单元测试
+
+全部测试
+
+~~~
+vendor/bin/phpunit
+~~~
+
+指定类单元测试
+
+~~~
+vendor/bin/phpunit tests/Feature/ExampleTest.php 
+~~~
+
+指定方法进行单元测试
+
+~~~
+vendor/bin/phpunit --filter=testBasicTest 
+~~~
+
+
+
 
