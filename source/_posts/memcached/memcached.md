@@ -85,3 +85,7 @@ flush_all
 ~~~
 echo "flush_all" | nc 192.168.1.xxx 11211
 ~~~
+
+memcache和memcached区别
+
+memcache基于pecl扩展 memcached基于libmemcached版本
