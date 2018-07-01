@@ -387,6 +387,18 @@ crontab -e -u nginx
 */10 * * * * /usr/local/bin/php /www/web/monster-dks/run password:check@key >> /dev/null 2>&1
 ~~~
 
+### 跨域
+
+~~~
+location ~ .*\.(text|xml) $ {
+    add_header Access-Control-Allow-Credentials true;
+    add_header Access-Control-Allow-Methods GET,POST;
+    add_header Access-Control-Allow-Origin *;
+    add_header Access-Control-Allow-Headers *;
+    access_log  /usr/local/var/log/nginx/access.log;
+}
+~~~
+
 
 
 
