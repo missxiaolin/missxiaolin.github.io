@@ -120,6 +120,14 @@ server {
 }
 ~~~
 
+后端服务器在负载均衡调度中的状态
+
+- down 当前server暂时不参与负载均衡
+- backup 预留的备份服务器
+- max_fails 允许请求失败的次数
+- fail_timeout 经过max_fails失败后，服务暂停的时间
+- max_conns 限制最大的接收的连接数
+
 ### Nginx Lua 执行顺序
 ~~~
 init_by_lua            http
