@@ -150,7 +150,7 @@ console.log(obj2) //{x: 1}
 
 经过验证，我们发现JS 提供的自有方法并不能彻底解决Array、Object的深拷贝问题。只能祭出大杀器：递归
 
-~~~
+```
 function deepCopy(obj) {
     // 创建一个新对象
     let result = {}
@@ -188,7 +188,7 @@ obj2.x.m = 2;
 
 console.log(obj1); //{x: {m: 1}, y: undefined, z: ƒ, a: Symbol(foo)}
 console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
-~~~	
+```
 
 可以看到，递归完美的解决了前面遗留的所有问题，我们也可以用第三方库：jquery的$.extend和lodash的_.cloneDeep来解决深拷贝。上面虽然是用Object验证，但对于Array也同样适用，因为Array也是特殊的Object。
 
@@ -196,7 +196,7 @@ console.log(obj2); //{x: {m: 2}, y: undefined, z: ƒ, a: Symbol(foo)}
 
 #### 循环引用拷贝
 
-~~~
+```
 var obj1 = {
     x: 1, 
     y: 2
@@ -204,11 +204,11 @@ var obj1 = {
 obj1.z = obj1;
 
 var obj2 = deepCopy(obj1);
-~~~
+```
 
 此时如果调用刚才的deepCopy函数的话，会陷入一个循环的递归过程，从而导致爆栈。jquery的$.extend也没有解决。解决这个问题也非常简单，只需要判断一个对象的字段是否引用了这个对象或这个对象的任意父级即可，修改一下代码：
 
-~~~
+```
 function deepCopy(obj, parent = null) {
     // 创建一个新对象
     let result = {};
@@ -253,8 +253,9 @@ obj1.z = obj1;
 var obj2 = deepCopy(obj1);
 console.log(obj1); //太长了去浏览器试一下吧～ 
 console.log(obj2); //太长了去浏览器试一下吧～ 
-~~~
+```
 
 至此，已完成一个支持循环引用的深拷贝函数。当然，也可以使用lodash的_.cloneDeep噢～。
+
 
 
