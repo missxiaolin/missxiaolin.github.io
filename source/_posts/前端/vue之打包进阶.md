@@ -5,7 +5,17 @@ categories: "前端之巅"
 tags: '前端'
 ---
 
-## vue-cli 打包vendor大如何处理
+## 简介
+
+网站加载的速度取决于浏览器必须下载的所有文件的大小。减少要传输的文件的大小可以使网站不仅加载更快，而且对于那些宽带是按量计费的人来说也更友好。
+
+gzip是一种流行的数据压缩程序。您可以使用gzip压缩Nginx实时文件。这些文件在检索时由支持它的浏览器解压缩，好处是web服务器和浏览器之间传输的数据量更小，速度更快。
+
+gzip不一定适用于所有文件的压缩。例如，文本文件压缩得非常好，通常会缩小两倍以上。另一方面，诸如JPEG或PNG文件之类的图像已经按其性质进行压缩，使用gzip压缩很难有好的压缩效果或者甚至没有效果。压缩文件会占用服务器资源，因此最好只压缩那些压缩效果好的文件。
+
+在本指南中，我们将讨论如何配置安装在Ubuntu 16.04服务器上的Nginx，以利用gzip压缩，来减少发送给网站访问者的文件的大小。
+
+### vue-cli 打包vendor大如何处理
 
 在写admin的时候[项目地址](https://github.com/missxiaolin/vue-admin)
 打包发现vendor.js特别大 如何提高用户体验呢
@@ -170,6 +180,68 @@ if (config.build.productionGzip) {
 
 这样做就可以了吗，然而并不是 配合nginx
 
+没有设置的效果Nginx响应头
+
+~~~
+HTTP/1.1 200 OK
+Server: nginx/1.4.6 (Ubuntu)
+Date: Tue, 19 Jan 2016 20:04:12 GMT
+Content-Type: text/html
+Last-Modified: Tue, 04 Mar 2014 11:46:45 GMT
+Connection: keep-alive
+Content-Encoding: gzip
+~~~
+
+在最后一行中，您可以看到Content-Encoding: gzip。这告诉我们gzip压缩已用于发送此文件。这是因为在Ubuntu 16.04上，Nginx的 gzip在安装后使用默认设置自动启用了压缩。
+
+但是，默认情况下，Nginx仅压缩HTML文件。新安装中的每个其他文件都将以未压缩的形式提供。要验证这一点，您可以请求以test.jpg相同方式命名的测试图像。
+
+~~~
+curl -H "Accept-Encoding: gzip" -I http://localhost/test.jpg
+~~~
+
+结果应该与以前略有不同：
+
+Nginx响应头
+
+~~~
+HTTP/1.1 200 OK
+Server: nginx/1.4.6 (Ubuntu)
+Date: Tue, 19 Jan 2016 20:10:34 GMT
+Content-Type: image/jpeg
+Content-Length: 0
+Last-Modified: Tue, 19 Jan 2016 20:06:22 GMT
+Connection: keep-alive
+ETag: "569e973e-0"
+Accept-Ranges: bytes
+~~~
+
+Content-Encoding: gzip没有输出，这意味着文件是在没有压缩的情况下提供。
+
+您可以使用测试CSS样式表重复测试。
+
+~~~
+curl -H "Accept-Encoding: gzip" -I http://localhost/test.css
+~~~
+
+再一次，输出中没有提到压缩。
+
+CSS文件的Nginx响应头
+
+~~~
+HTTP/1.1 200 OK
+Server: nginx/1.4.6 (Ubuntu)
+Date: Tue, 19 Jan 2016 20:20:33 GMT
+Content-Type: text/css
+Content-Length: 0
+Last-Modified: Tue, 19 Jan 2016 20:20:33 GMT
+Connection: keep-alive
+ETag: "569e9a91-0"
+Accept-Ranges: bytes
+~~~
+
+下一步是将Nginx配置支持其他类型文件的压缩。
+
 ~~~
 server {
     listen       80;
@@ -222,6 +294,11 @@ server {
     #}
 }
 ~~~
+
+
+
+
+
 
 
 
