@@ -219,6 +219,6 @@ killasgroup             = true
 
 ## 项目地址
 
-[连接](https://github.com/missxiaolin/laravel-task)
+[链接](https://github.com/missxiaolin/laravel-task)
 
 
