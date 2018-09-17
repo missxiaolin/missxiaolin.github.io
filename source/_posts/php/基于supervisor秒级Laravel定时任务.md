@@ -1,7 +1,7 @@
 ---
 title: 基于supervisor秒级Laravel定时任务
 date: 2018-09-17 16:30:46
-categories: ["PHP"]
+categories: ["PHP",,"laravel"]
 tags: 'php'
 ---
 
