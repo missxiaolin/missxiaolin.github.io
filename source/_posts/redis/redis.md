@@ -53,6 +53,17 @@ redis-cli  -p 6379
 
 <img src="http://oni42o7kl.bkt.clouddn.com/redis-mlh.png">
 
+#### dicket 命令行安装
+
+~~~
+# 拉取 redis 镜像
+> docker pull redis
+# 运行 redis 容器
+> docker run --name myredis -d -p6379:6379 redis
+# 执行容器中的 redis-cli，可以直接使用命令行操作 redis
+> docker exec -it myredis redis-cli...
+~~~
+
 下面我们继续
 
 ## 检测redis是否启动成功
