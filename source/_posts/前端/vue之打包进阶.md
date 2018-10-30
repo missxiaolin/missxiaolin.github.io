@@ -156,7 +156,7 @@ module.exports = {
 接下来我们看看webpack.prod.conf 这里做了什么，会生成gz文件
 
 
-<img src="http://oni42o7kl.bkt.clouddn.com/vue-build.jpeg">
+<img src="http://www.missxiaolin.com/vue-build.jpeg">
 
 ~~~
 if (config.build.productionGzip) {

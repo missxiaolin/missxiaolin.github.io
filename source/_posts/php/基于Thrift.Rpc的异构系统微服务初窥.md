@@ -13,11 +13,11 @@ tags: 'php'
 
 ### 微服务整体设计
 
-<img src="http://oni42o7kl.bkt.clouddn.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BC%82%E6%9E%84%E6%9E%B6%E6%9E%84.png">
+<img src="http://www.missxiaolin.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%BC%82%E6%9E%84%E6%9E%B6%E6%9E%84.png">
 
 ### 单服务基本设计
 
-<img src="http://oni42o7kl.bkt.clouddn.com/Thrift%E5%BE%AE%E6%9C%8D%E5%8A%A1%20-%20%E9%80%9A%E7%9F%A5%E6%9C%8D%E5%8A%A1.png">
+<img src="http://www.missxiaolin.com/Thrift%E5%BE%AE%E6%9C%8D%E5%8A%A1%20-%20%E9%80%9A%E7%9F%A5%E6%9C%8D%E5%8A%A1.png">
 
 ### Thrift技术讲解
 

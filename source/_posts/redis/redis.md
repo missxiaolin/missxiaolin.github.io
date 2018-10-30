@@ -39,9 +39,9 @@ docker还不了解的可以看看[docker入门](https://missxiaolin.github.io/20
 
 直接搜索出来安装官方的就可以了->启动->设置->暴露出端口号
 
-<img src="http://oni42o7kl.bkt.clouddn.com/docker-redis.png">
-<img src="http://oni42o7kl.bkt.clouddn.com/redis-start-up.png">
-<img src="http://oni42o7kl.bkt.clouddn.com/redis-set-up.png">
+<img src="http://www.missxiaolin.com/docker-redis.png">
+<img src="http://www.missxiaolin.com/redis-start-up.png">
+<img src="http://www.missxiaolin.com/redis-set-up.png">
 
 没错就是这么简单 redis就启动了
 
@@ -51,7 +51,7 @@ docker还不了解的可以看看[docker入门](https://missxiaolin.github.io/20
 redis-cli  -p 6379
 ~~~
 
-<img src="http://oni42o7kl.bkt.clouddn.com/redis-mlh.png">
+<img src="http://www.missxiaolin.com/redis-mlh.png">
 
 #### dicket 命令行安装
 

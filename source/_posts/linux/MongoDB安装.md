@@ -11,8 +11,8 @@ MongoDB 是一个基于分布式文件存储的数据库。由 C++ 语言编写�
 
 MongoDB 是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。
 
-<img src="http://oni42o7kl.bkt.clouddn.com/mongodb-vs-mysql.png">
-<img src="http://oni42o7kl.bkt.clouddn.com/Figure-1-Mapping-Table-to-Collection-1.png">
+<img src="http://www.missxiaolin.com/mongodb-vs-mysql.png">
+<img src="http://www.missxiaolin.com/Figure-1-Mapping-Table-to-Collection-1.png">
 
 ## 安装
 

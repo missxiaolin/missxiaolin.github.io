@@ -20,7 +20,7 @@ Yii::setAlias('@api', dirname(dirname(__DIR__)) . '/api');
 
 然后在environments目录的dev和prod里面增加api目录 同样可以复制（frontend）或者 （backend）
 
-<img src="http://oni42o7kl.bkt.clouddn.com/yii%20api%E9%85%8D%E7%BD%AE.png">
+<img src="http://www.missxiaolin.com/yii%20api%E9%85%8D%E7%BD%AE.png">
 
 nginx配置下这样就可以访问到api了
 

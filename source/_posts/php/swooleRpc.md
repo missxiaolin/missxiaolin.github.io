@@ -18,7 +18,7 @@ RPC采用客户机/服务器模式。请求程序就是一个客户机，而服�
 
 实现依赖于php的call魔术方法。
 
-<img src="http://oni42o7kl.bkt.clouddn.com/swoole-rpc.jpg">
+<img src="http://www.missxiaolin.com/swoole-rpc.jpg">
 
 ### 项目地址
 

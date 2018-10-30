@@ -8,10 +8,10 @@ tags: 'php'
 之前我们用Geetest api做过一个[滑动验证码](https://missxiaolin.github.io/2017/04/08/yii2.0%E6%95%B4%E5%90%88Geetest%E6%BB%91%E5%8A%A8%E9%AA%8C%E8%AF%81%E7%A0%81/)
 之后大家都说这个api其实免费版1小时只有500次
 
-<img src="http://oni42o7kl.bkt.clouddn.com/%E6%BB%91%E5%8A%A8%E9%AA%8C%E8%AF%81%E7%A0%81.png" >
+<img src="http://www.missxiaolin.com/%E6%BB%91%E5%8A%A8%E9%AA%8C%E8%AF%81%E7%A0%81.png" >
 怎么办呢，好吧只能自己写一个了……
 
-大家先下载需要准备的[文件](http://oni42o7kl.bkt.clouddn.com/%E6%BB%91%E5%8A%A8%E9%AA%8C%E8%AF%81%E7%A0%81.zip)吧!
+大家先下载需要准备的[文件](http://www.missxiaolin.com/%E6%BB%91%E5%8A%A8%E9%AA%8C%E8%AF%81%E7%A0%81.zip)吧!
 
 怎么使用呢
 1.先看看后端我们需要做些什么吧
@@ -113,4 +113,4 @@ $.ajax({
 
 到这里其实已经可以看到效果了
 
-<img src="http://oni42o7kl.bkt.clouddn.com/%E6%BB%91%E5%8A%A8%E9%AA%8C%E8%AF%81%E7%A0%81%E6%95%88%E6%9E%9C2.png">
+<img src="http://www.missxiaolin.com/%E6%BB%91%E5%8A%A8%E9%AA%8C%E8%AF%81%E7%A0%81%E6%95%88%E6%9E%9C2.png">

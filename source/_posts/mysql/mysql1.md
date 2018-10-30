@@ -122,7 +122,7 @@ InnoDB里只支持BTREE索引，有两种形态：
 
 这个组合，是最简单，最容易分析的组合。id是主键，Read Committed隔离级别，给定SQL：delete from t1 where id = 10; 只需要将主键上，id= 10的记录加上X锁即可。如下图所示：
 
-<img src="http://oni42o7kl.bkt.clouddn.com/mysql1.jpg">
+<img src="http://www.missxiaolin.com/mysql1.jpg">
 
 结论：id是主键时，此SQL只需要在id=10这条记录上加X锁即可。
 
@@ -130,7 +130,7 @@ InnoDB里只支持BTREE索引，有两种形态：
 
 这个组合，id不是主键，而是一个Unique的二级索引键值。那么在RC隔离级别下，delete from t1 where id = 10; 需要加什么锁呢？见下图：
 
-<img src="http://oni42o7kl.bkt.clouddn.com/mysql2.jpg">
+<img src="http://www.missxiaolin.com/mysql2.jpg">
 
 此组合中，id是unique索引，而主键是name列。此时，加锁的情况由于组合一有所不同。由于id是unique索引，因此delete语句会选择走id列的索引进行where条件的过滤，在找到id=10的记录后，首先会将unique索引上的id=10索引记录加上X锁，同时，会根据读取到的name列，回主键索引(聚簇索引)，然后将聚簇索引上的name= ‘d’ 对应的主键索引项加X锁。为什么聚簇索引上的记录也要加锁？试想一下，如果并发的一个SQL，是通过主键索引来更新：update t1 set id = 100 wherename = ‘d’; 此时，如果delete语句没有将主键索引上的记录加锁，那么并发的update就会感知不到delete语句的存在，违背了同一记录上的更新/删除需要串行执行的约束。
 
@@ -138,7 +138,7 @@ InnoDB里只支持BTREE索引，有两种形态：
 
 相对于组合一、二，组合三又发生了变化，隔离级别仍旧是RC不变，但是id列上的约束又降低了，id列不再唯一，只有一个普通的索引。假设delete from t1 where id = 10; 语句，仍旧选择id列上的索引进行过滤where条件，那么此时会持有哪些锁？同样见下图：
 
-<img src="http://oni42o7kl.bkt.clouddn.com/mysql3.jpg">
+<img src="http://www.missxiaolin.com/mysql3.jpg">
 
 根据此图，可以看到，首先，id列索引上，满足id= 10查询条件的记录，均已加锁。同时，这些记录对应的主键索引上的记录也都加上了锁。与组合二唯一的区别在于，组合二最多只有一个满足等值查询的记录，而组合三会将所有满足查询条件的记录都加锁。
 
@@ -146,7 +146,7 @@ InnoDB里只支持BTREE索引，有两种形态：
 
  相对于前面三个组合，这是一个比较特殊的情况。id列上没有索引，whereid = 10;这个过滤条件，没法通过索引进行过滤，那么只能走全表扫描做过滤。对应于这个组合，SQL会加什么锁？或者是换句话说，全表扫描时，会加什么锁？这个答案也有很多：有人说会在表上加X锁；有人说会将聚簇索引上，选择出来的id= 10;的记录加上X锁。那么实际情况呢？请看下图：
 
-<img src="http://oni42o7kl.bkt.clouddn.com/mysql5.jpg">
+<img src="http://www.missxiaolin.com/mysql5.jpg">
 
 若id列上没有索引，SQL会走聚簇索引的全扫描进行过滤，由于过滤是由MySQLServer层面进行的。因此每条记录，无论是否满足条件，都会被加上X锁。但是，为了效率考量，MySQL做了优化，对于不满足条件的记录，会在判断后放锁，最终持有的，是满足条件的记录上的锁，但是不满足条件的记录上的加锁/放锁动作不会省略。同时，优化也违背了2PL的约束。
 
@@ -162,7 +162,7 @@ InnoDB里只支持BTREE索引，有两种形态：
 
 组合七，RepeatableRead隔离级别，id上有一个非唯一索引，执行deletefrom t1 where id = 10; 假设选择id列上的索引进行条件过滤，最后的加锁行为，是怎么样的呢？同样看下面这幅图：
 
-<img src="http://oni42o7kl.bkt.clouddn.com/mysql6.jpg">
+<img src="http://www.missxiaolin.com/mysql6.jpg">
 
 RepeatableRead隔离级别下，id列上有一个非唯一索引，对应SQL：deletefrom t1 where id = 10; 首先，通过id索引定位到第一条满足查询条件的记录，加记录上的X锁，加GAP上的GAP锁，然后加主键聚簇索引上的记录X锁，然后返回；然后读取下一条，重复进行。直至进行到第一条不满足条件的记录[11,f]，此时，不需要加记录X锁，但是仍旧需要加GAP锁，最后返回结束。
 
@@ -170,7 +170,7 @@ RepeatableRead隔离级别下，id列上有一个非唯一索引，对应SQL：d
 
 组合八，RepeatableRead隔离级别下的最后一种情况，id列上没有索引。此时SQL：deletefrom t1 where id = 10; 没有其他的路径可以选择，只能进行全表扫描。最终的加锁情况，如下图所示：
 
-<img src="http://oni42o7kl.bkt.clouddn.com/mysql7.jpg">
+<img src="http://www.missxiaolin.com/mysql7.jpg">
 
 如图，这是一个很恐怖的现象。首先，聚簇索引上的所有记录，都被加上了X锁。其次，聚簇索引每条记录间的间隙(GAP，也同时被加上了GAP锁。这个示例表，只有6条记录，一共需要6个记录锁，7个GAP锁。试想，如果表上有1000万条记录呢？
 

@@ -33,13 +33,13 @@ Eureka由三部分组成
 - Service Provider 服务提供方，将自身服务注册到Eureka
 - Service Consumer 服务消费方，从Eureka获取注册 服务列表，从而消费服务。
 
-<img src="http://oni42o7kl.bkt.clouddn.com/eureka.jpg">
+<img src="http://www.missxiaolin.com/eureka.jpg">
 
 需要注意的是，上图三个角色都是逻辑角色，实际应用中，消费者和提供者可能是一个服务。
 
 Eureka具体工作流程如下。
 
-<img src="http://oni42o7kl.bkt.clouddn.com/eureka1.jpg">
+<img src="http://www.missxiaolin.com/eureka1.jpg">
 
 Service Provider会向Eureka Server注册、续约、服务下线等操作。Eureka Server之间会做服务同步，保证多个Eureka Server之间，服务保持一致。Service Consumer会向Eureka Server获取服务列表，然后进行服务消费。
 
@@ -96,7 +96,7 @@ Eureka主要的配置就这4个，简单来看，分别是实例、名字、ip�
 
 具体流程如下图。
 
-<img src="http://oni42o7kl.bkt.clouddn.com/PHP%E6%B3%A8%E5%85%A5Eureka%E6%B5%81%E7%A8%8B.png">
+<img src="http://www.missxiaolin.com/PHP%E6%B3%A8%E5%85%A5Eureka%E6%B5%81%E7%A8%8B.png">
 
 首先我们写一个基于Swoole的RPC服务，这里提供一个 RPC实现仓库 ，然后我们重写一下Server基类。
 
@@ -133,11 +133,11 @@ class RpcServer extends Server
 
 然后启动我们的服务，就可以在Eureka的页面中看到我们注册的服务了。
 
-<img src="http://oni42o7kl.bkt.clouddn.com/1521712457260.jpg">
+<img src="http://www.missxiaolin.com/1521712457260.jpg">
 
 然后我们将Eureka的服务信息全部缓存到Redis中，截图如下
 
-<img src="http://oni42o7kl.bkt.clouddn.com/1521715056369.jpg">
+<img src="http://www.missxiaolin.com/1521715056369.jpg">
 
 然后便可以调用微服务中的接口了。
 
@@ -150,7 +150,7 @@ $json = json_decode($res->getBody()->getContents(), true);
 dd($json);
 ~~~
 
-<img src="http://oni42o7kl.bkt.clouddn.com/1521715121215.jpg">
+<img src="http://www.missxiaolin.com/1521715121215.jpg">
 
 
 

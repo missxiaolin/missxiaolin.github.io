@@ -10,16 +10,16 @@ tags: 'php'
 官方：[http://www.geetest.com/](http://www.geetest.com/)
 
 做好之后效果图
-<img src="http://oni42o7kl.bkt.clouddn.com/8.png">
+<img src="http://www.missxiaolin.com/8.png">
 好了不多说了，进入我们今天的主题吧：
 1.注册获取到id和key
-<img src="http://oni42o7kl.bkt.clouddn.com/10.png">
+<img src="http://www.missxiaolin.com/10.png">
 
 2.引入sdk
 
 [官方下载地址]()
 
-[可以直接在我这边复制](http://oni42o7kl.bkt.clouddn.com/Geetest.php)
+[可以直接在我这边复制](http://www.missxiaolin.com/Geetest.php)
 
 3.先看看前端我们需要引入什么吧
 

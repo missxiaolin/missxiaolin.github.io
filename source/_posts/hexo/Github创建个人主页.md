@@ -15,7 +15,7 @@ GitHub 为每一个用户分配了一个二级域名 $username.github.io，用�
 
 1. 创建个人主页版本库
 
-<img src="http://oni42o7kl.bkt.clouddn.com/github-create-repo.png">
+<img src="http://www.missxiaolin.com/github-create-repo.png">
 
 2. 克隆版本库到本地
 

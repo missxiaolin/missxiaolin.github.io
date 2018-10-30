@@ -36,7 +36,7 @@ Docker 是一个开源的应用容器引擎，让开发者可以打包他们的�
 
 下面用流程图来分步解释常用的命令：
 
-<img src="http://oni42o7kl.bkt.clouddn.com/Docker.jpg">
+<img src="http://www.missxiaolin.com/Docker.jpg">
 
 从Create Image--→ Created Image; 1 从Pull Image ---→ Pulled Image; 2 从Run Docker Container ---→ Ran Docker Container ; 3 一共三个流程。
 首先介绍两个概念， Registry, 和 Repository.
@@ -80,7 +80,7 @@ Docker 的作用，从根本上是解决 软件产品交付时，对环境的依
 
 对在你机器上建立的Docker 的网络拓扑作一个简单的图示展现，便于更好更快地进行操作理解。
 
-<img src="http://oni42o7kl.bkt.clouddn.com/Network.png">
+<img src="http://www.missxiaolin.com/Network.png">
 
 比如在一些调通配置上，如果理解成这样的具象，一些问题会不好排查到。
 
@@ -111,5 +111,5 @@ docker rm python
 当然它还存在一些bug, 有时状态并不一定是同步的。
 如下，展示一下Kitematic的界面，以及在同步的情况下，运行中的容器 和所有已经创建的容器列表的对应
 
-<img src="http://oni42o7kl.bkt.clouddn.com/WechatIMG10.jpeg">
-<img src="http://oni42o7kl.bkt.clouddn.com/WechatIMG9.jpeg">
+<img src="http://www.missxiaolin.com/WechatIMG10.jpeg">
+<img src="http://www.missxiaolin.com/WechatIMG9.jpeg">

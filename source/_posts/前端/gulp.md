@@ -24,7 +24,7 @@ npm install --save-dev gulp
 
 ### gulp
 
-[下载地址](http://oni42o7kl.bkt.clouddn.com/gulpfile.js)
+[下载地址](http://www.missxiaolin.com/gulpfile.js)
 
 ~~~
 var gulp        = require('gulp'),

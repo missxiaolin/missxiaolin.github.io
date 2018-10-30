@@ -9,7 +9,7 @@ tags: '前端'
 
 Webpack 是一个前端资源加载/打包工具。它将根据模块的依赖关系进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。
 
-<img src="http://oni42o7kl.bkt.clouddn.com/what-is-webpack.png">
+<img src="http://www.missxiaolin.com/what-is-webpack.png">
 
 从图中我们可以看出，Webpack 可以将多种静态资源 js、css、less 转换成一个静态文件，减少了页面的请求。
 接下来我们简单为大家介绍 Webpack 的安装与使用。
@@ -22,7 +22,7 @@ cnpm install webpack -g
 
 ### Webpack.js
 
-[下载地址](http://oni42o7kl.bkt.clouddn.com/webpack.js)
+[下载地址](http://www.missxiaolin.com/webpack.js)
 
 ~~~
 const path = require('path'),

@@ -40,7 +40,7 @@ npm run analyz
 
 先打包一遍
 
-<img src="http://oni42o7kl.bkt.clouddn.com/vue-build1.jpg">
+<img src="http://www.missxiaolin.com/vue-build1.jpg">
 
 在build下创建webpacl.ddl.conf.js
 ~~~

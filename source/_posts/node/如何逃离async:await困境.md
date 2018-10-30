@@ -11,7 +11,7 @@ tags: '前端之巅'
 
 本文将通过几个例子，解释什么是 async/await 困境，为什么会出现 async/await 困境，以及如何逃离 async/await 困境。希望本文能够帮你了解 async/await 的基础知识，并帮你提升你的应用程序的性能。
 
-<img src="http://oni42o7kl.bkt.clouddn.com/await1.jpg">
+<img src="http://www.missxiaolin.com/await1.jpg">
 
 async/await 将我们从回调函数的困境中解救出来，但是人们开始滥用它——导致了 async/await 困境的诞生。
 

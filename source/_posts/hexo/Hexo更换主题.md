@@ -13,7 +13,7 @@ cd themes
 
 默认主题 <u>landscape</u> 目录结构:
 
-<img src="http://oni42o7kl.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-03-24%2009.39.24.png">
+<img src="http://www.missxiaolin.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-03-24%2009.39.24.png">
 
 
 
