@@ -100,3 +100,15 @@ Or, if you don't want/need a background service you can just run:
 
 默认账号密码admin admin
 
+### docker 安装 grafana
+
+~~~
+docker pull grafana/grafana
+~~~
+
+启动
+
+~~~
+docker run -d -p 3000:3000 -v /Users/dokcer/grafana/data:/data grafana/grafana
+~~~
+
