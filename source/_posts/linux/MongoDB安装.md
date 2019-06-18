@@ -88,3 +88,15 @@ WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
 更多关于MongoDB的操作，可参见:
 
 - [mongodb-tutorial](http://www.runoob.com/mongodb/mongodb-tutorial.html)
+
+## docker 安装
+
+~~~
+docker pull mongo
+~~~
+
+启动
+
+~~~
+docker run -p 27017:27017 -v /Users/dokcer/mongo/db:/data/db -d mongo
+~~~
