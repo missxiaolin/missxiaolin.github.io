@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>前端微服务 | 你总是这样轻言放弃的话，无论多久你都只会原地踏步。</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">前端微服务</h1><a id="logo" href="/.">你总是这样轻言放弃的话，无论多久你都只会原地踏步。</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">前端微服务</h1><div class="post-meta">Jan 18, 2020<span> | </span><span class="category"><a href="/categories/前端之巅/">前端之巅</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2020/01/18/前端/前端微服务/" href="/2020/01/18/前端/前端微服务/#comments" class="ds-thread-count"></a><div class="post-content"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>2016年由ThoughtWorks提出微前端的概念，将后端微服务的理念应用于浏览器端，即将 Web 应用由单一的单体应用转变为多个小型前端应用聚合为一的应用。</p>
+<p>H5前端所承载的业务主要是拉新，保持用户粘性，保持项目生态的完整性以及数据展示，管理系统。<br>所以对应到产品就是活动页面（拉新，保持用户粘性），各家小程序（保持项目生态的完整性），pc后台管理系统（数据展示，管理系统）<br>如何把微服务架构思路加入到我们现有框架中。</p>
+<h3 id="框架目的"><a href="#框架目的" class="headerlink" title="框架目的"></a>框架目的</h3><ul>
+<li>独立开发、独立测试、独立发布、独立部署，提高了开发效率。 （业务解耦）</li>
+<li>统一的样式、统一的公共组件，项目的粒度易控制</li>
+<li>资源按需加载，提取公共库</li>
+</ul>
+<h3 id="待解决问题"><a href="#待解决问题" class="headerlink" title="待解决问题"></a>待解决问题</h3><p>1、开发流程构建问题</p>
+<ul>
+<li>需要提供一套应用注册机制，完成应用的无缝整合</li>
+<li>需要支持构建时集成应用和应用独立发布部署</li>
+</ul>
+<p>2、部署过程问题</p>
+<h3 id="前端微服务的技术探索"><a href="#前端微服务的技术探索" class="headerlink" title="前端微服务的技术探索"></a>前端微服务的技术探索</h3><ul>
+<li>原始的iframe</li>
+<li>代码合并 + 理由webpack 打包合并微服务</li>
+<li>single-vue-spa</li>
+</ul>
+<h3 id="原始-iframe"><a href="#原始-iframe" class="headerlink" title="原始 iframe"></a>原始 iframe</h3><p>1、优点：</p>
+<p>项目改造成本低，兼容性高<br>三大框架项目可以任意组合，非常高效</p>
+<p>2、缺点：<br>iframe 由于是整个嵌入的html，交互会有问题（比如一些alert弹窗等）<br>事件传递会有困难</p>
+<p>3、针对问题的解决方案：<br>postMessage：<br>可以解决页面交互 事件传参 的问题<br>Emitter：<br>事件中心，处理交互</p>
+<h3 id="代码合在一起"><a href="#代码合在一起" class="headerlink" title="代码合在一起"></a>代码合在一起</h3><p>即所有模块可以根据目录去区分，但是所有代码都是合在一起的，可以通过 webpack 打包工具等操作实现微服务，这也是微服务的一种</p>
+<p>1、特点：</p>
+<p>代码合并一起<br>资源调用，通过路由切换的方法控制各个模块的微服务加载</p>
+<p>2、实现：<br>自己写框架实现路由合并</p>
+<h3 id="代码分开开发，组合式集成"><a href="#代码分开开发，组合式集成" class="headerlink" title="代码分开开发，组合式集成"></a>代码分开开发，组合式集成</h3><p>代码分开开发，各个系统 独立开发、独立运行和独立部署 ，当然这样也是成本更高的</p>
+<p>独立开发和独立运行：</p>
+<p>单个模块微服务是可以独立开发和运行的，这样轻量级代码，便于我们的运行和开发流畅度</p>
+<p>常见技术方案就是：</p>
+<p>将各个模块独立打包 chunk，在调用的时候进行加载即可</p>
+<p>成本高的原因（规范）：</p>
+<ul>
+<li>依赖需要统一：一旦项目分开开发，依赖版本不同必然会照成不可预知的问题，所以统一依赖非常重要</li>
+<li>路由问题：组件式集成核心就是理由路由进行框架之间的切换加载，那么路由管理和规范是重中之重</li>
+<li>全局组件的问题：全局组件可能会造成不可预知的错误，所以组件分装要注意</li>
+<li>全局方法的问题，大家都喜欢在Vue.prototype下挂载方法，使用微服务，必然需要添加规范，防止覆盖和冲突</li>
+</ul>
+<p>公用代码的问题：</p>
+<p>比如 vue，vuex，vuerouter，element-ui 等，如果每个项目都打包，明显代码冗余，加载缓慢，我们想要的是一次加载，处处使用</p>
+<p>强大的构建系统：</p>
+<p>构建系统是发布的保证</p>
+<p>可能需要的资源：</p>
+<ul>
+<li>编写框架，动态管理我们各个模块的App</li>
+<li>构建发布系统，编写脚本</li>
+<li>第三方CDN，便于依赖统一以及代码大小优化</li>
+<li>后端运维的支持</li>
+<li>测试的支持，技术框架探索，测试工程量非常大，当然Bu可能会很多</li>
+</ul>
+<h3 id="组合式集成"><a href="#组合式集成" class="headerlink" title="组合式集成"></a>组合式集成</h3><p>独立开发、独立运行和独立部署</p>
+<h3 id="框架-VueAppMicro"><a href="#框架-VueAppMicro" class="headerlink" title="框架 VueAppMicro"></a>框架 VueAppMicro</h3><p>利用我们编写的框架去动态管理路由和store</p>
+<p>root模块：</p>
+<p>也可以认为是导航模块，这个模块是 base ，一般他用到导航跳转到各个子系统</p>
+<p>首屏加载模块：</p>
+<p>default模块<br>default 因为是动态加载的，default可以认为是默认就需要加载的<br>active 模块（current）<br>当前活跃模块</p>
+<h3 id="框架大致功能模块"><a href="#框架大致功能模块" class="headerlink" title="框架大致功能模块"></a>框架大致功能模块</h3><p>模块列表</p>
+<p>index.js</p>
+<ul>
+<li>入口</li>
+<li>单利模式（挂载到 window，只要有一个创建，其余微服务均使用这个）</li>
+</ul>
+<p>app </p>
+<ul>
+<li>管理 application</li>
+<li>注册app</li>
+<li>删除app</li>
+<li>查询app</li>
+<li>app 状态变更</li>
+</ul>
+<p>router</p>
+<ul>
+<li>路由管理</li>
+<li>添加删除路由</li>
+</ul>
+<p>lifecycle</p>
+<ul>
+<li>生命周期管理</li>
+<li>start</li>
+<li>navigationTo</li>
+<li>mount</li>
+<li>unmount</li>
+</ul>
+<p>enit</p>
+<ul>
+<li>事件中心，用作微服务交互的</li>
+</ul>
+<p>html</p>
+<ul>
+<li>获取 link src 数据</li>
+<li>获取html资源</li>
+</ul>
+<h3 id="开发技术栈"><a href="#开发技术栈" class="headerlink" title="开发技术栈"></a>开发技术栈</h3><p>rollup.js</p>
+<ul>
+<li>框架打包工具</li>
+</ul>
+<p>ES6</p>
+<ul>
+<li>class</li>
+</ul>
+<p>类单利模式</p>
+<ul>
+<li>因为不同框架都需要注册 MicServer，但是其中的 apps 只需要一个</li>
+</ul>
+<h3 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h3><p>app</p>
+<ul>
+<li>模块注册</li>
+<li>模块的增删改查</li>
+</ul>
+<p>router</p>
+<ul>
+<li>路由的增删改查</li>
+<li>状态查询</li>
+</ul>
+<p>lifecycle</p>
+<ul>
+<li>挂载和卸载</li>
+</ul>
+<p>html</p>
+<ul>
+<li>html处理，包含js和css合并到我们的index.html</li>
+</ul>
+<p>Emit</p>
+<ul>
+<li>事件中心，事件的传递和交互</li>
+<li>在我们 main 元素中挂载不同的Vue，进行操作</li>
+</ul>
+<p><img src="http://missxiaolin.com/desc.png"></p>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://yoursite.com/2020/01/18/前端/前端微服务/" data-id="ck5g64jvr009v8b26sc02f39r" class="article-share-link">分享到</a><div class="tags"><a href="/tags/前端/">前端</a></div><div class="post-nav"><a href="/2019/12/01/linux/etcd/" class="next">linux (etcd)</a></div><div data-thread-key="2020/01/18/前端/前端微服务/" data-title="前端微服务" data-url="http://yoursite.com/2020/01/18/前端/前端微服务/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2020/01/18/前端/前端微服务/" data-title="前端微服务" data-url="http://yoursite.com/2020/01/18/前端/前端微服务/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">25</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/laravel/">laravel</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/yii/">yii</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/composer/">composer</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/rsa/">rsa</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端之巅/">前端之巅</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术杂谈/">技术杂谈</a><span class="category-list-count">18</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/加密/" style="font-size: 15px;">加密</a> <a href="/tags/composer/" style="font-size: 15px;">composer</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/kafka/" style="font-size: 15px;">kafka</a> <a href="/tags/linux/" style="font-size: 15px;">linux'</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/kong/" style="font-size: 15px;">kong</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/mac/" style="font-size: 15px;">mac</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/nginx/" style="font-size: 15px;">nginx</a> <a href="/tags/前端之巅/" style="font-size: 15px;">前端之巅</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/elasticsearch/" style="font-size: 15px;">elasticsearch</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/监控/" style="font-size: 15px;">监控</a> <a href="/tags/前端/" style="font-size: 15px;">前端</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/01/18/前端/前端微服务/">前端微服务</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/01/linux/etcd/">linux (etcd)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/30/前端/js 错误监控/">js 错误监控</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/27/linux/filebeat/">filebeat 日志系统搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/25/linux/Jenkins/">jenkins 安装使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/25/前端/vue(五)/">vue (五)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/24/前端/vue3.0/">vue3.0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/监控/mysql/">mysql监控</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/23/linux/php-fpm内存升高问题/">php-fpm内存</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/22/监控/服务注册和发现/">服务注册和发现</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">你总是这样轻言放弃的话，无论多久你都只会原地踏步。.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'xiaolinouye'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
